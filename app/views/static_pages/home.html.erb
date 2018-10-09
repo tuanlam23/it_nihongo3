@@ -5,11 +5,17 @@
     <title><%= yield(:title) %> | Review Book</title>
   </head>
   <body>
-    <h1>Review Book</h1>
-    <p>
-      This is the home page for the
-      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
-    </p>
+    <div class="center jumbotron">
+  <h1>Welcome to the Review book</h1>
+
+  <h2>
+    This is the home page for the Review book
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("sach.jpg",width: 136, height: 67, alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
   </body>
 </html>
