@@ -6,15 +6,17 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
+    return if @user&.activated
+    flash[:fail] = "User dose not exits! You can sign up."
+  	redirect_to root_path
   end
 
   def create
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
-      log_in @user
+      @user.send_activation_email
    	  flash[:success] = "Welcome to the Review Book!"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end

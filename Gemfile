@@ -15,6 +15,7 @@ gem "bootstrap-sass", "3.3.7"
 gem "bcrypt",         "3.1.12"
 gem "jquery-rails"
 gem "bootsnap", ">= 1.1.0", require: false
+gem "figaro"
 
 gem "carrierwave"
 gem "mini_magick", "4.7.0"
