@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 	has_many :books
 	has_many :reviews
+  ATTRIBUTES_PARAMS = [:name, :avatar, :login_name, :email, :genre, :password, :password_confirmation]
 	attr_accessor :remember_token
 	before_save { email.downcase! }
 	validates :name, presence: true, length: { maximum: 50 }
@@ -10,7 +11,7 @@ class User < ApplicationRecord
 		uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 },allow_nil: true
-
+  
 	def self.digest(string)
     	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
