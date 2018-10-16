@@ -1,0 +1,11 @@
+<% provide(:title, 'All book') %>
+<h1>All Book</h1>
+
+<ul class="books">
+  <% @books.each do |book| %>
+    <li>
+      <%= gravatar_for book, size: 50 %>
+      <%= link_to book.title, book %>
+    </li>
+  <% end %>
+</ul>
