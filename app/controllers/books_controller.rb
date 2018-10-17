@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 	end
 
 	def edit
-    @book = Book.all
+    @books = Book.all
   	end
 
 
