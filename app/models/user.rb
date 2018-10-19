@@ -2,18 +2,19 @@ class User < ApplicationRecord
 	has_many :books
 	has_many :reviews
   ATTRIBUTES_PARAMS = [:name, :avatar, :login_name, :email, :genre, :password, :password_confirmation]
-	# attr_accessor :remember_token
-	# before_save { email.downcase! }
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
   before_create :create_activation_digest
 	validates :name, presence: true, length: { maximum: 50 }
+  validates :login_name, presence: true, length: { maximum: 50 }
+  validates :gender, presence: true
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :email, presence: true, length: { maximum: 255 },
 		format: { with: VALID_EMAIL_REGEX },
 		uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 },allow_nil: true
+  mount_base64_uploader :avatar, AvatarUploader
   
 	def self.digest(string)
     	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -1,16 +1,26 @@
-<%= form_for(@user) do |f| %>
+<% provide(:title, "Edit user") %>
+<% provide(:button_text, 'Save changes') %>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@user) do |f| %>
       <%= render "shared/error_messages", object: @user %>
-
+      <div>
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
-      <div>
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar%>
-      </div>
-      <img id="blah" width="200" src="#" alt="your image"/>
+    </div>
+    
+      	<div>
+          <%= f.label :avatar%><br>
+          <div " >
+            <%= f.file_field :avatar, class: "form-control" %>
+          </div>
+        	<img id="blah" width="200" src="#" alt="your image" />
+        </div>
 
-      <%= f.label :login_name %>
-      <%= f.text_field :login_name, class: "form-control" %>
+      <div>
+      	<%= f.label :login_name %>
+      	<%= f.text_field :login_name, class: "form-control" %>
+  		</div>
 
       <div>
       <%= f.label :gender %>
@@ -31,3 +41,6 @@
       <%= f.password_field :password_confirmation, class: "form-control" %>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+  </div>
+</div>
+<%= javascript_include_tag "user_edit" %>

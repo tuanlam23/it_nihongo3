@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+	before_action :logged_in, only:[:create, :edit, :update, :destroy]
 	def new
 		@book = current_user.books.new
 	end
@@ -15,7 +16,7 @@ class BooksController < ApplicationController
 	end
 
 	def edit
-    @book = Book.all
+    @books = Book.all
   	end
 
 
