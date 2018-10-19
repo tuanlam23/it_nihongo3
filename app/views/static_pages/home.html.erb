@@ -18,13 +18,13 @@
 
 <div class="container">
     <div class="row">
-        <%= render 'books/edit'%>
         
             <div class="col-md-4">
               <div class="thumbnail">
                 <%= link_to image_tag("sach.jpg",width: 136, height: 67, alt: "Rails logo")%>
                 <div class="caption">
                   <h4><a href=  "#">Ni Hon Go</a></h4>
+                  <h4>Sach hoc tieng Nhat</h4>
                 <div class="ratings">
                   <p>
                     <span class="glyphicon glyphicon-star"></span>
@@ -37,7 +37,34 @@
                 </div>
                 <div class="space-ten"></div>
                 <div class="btn-ground text-center">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+                    <!-- <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button> -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i> Quick View</button>
+                </div>
+                <div class="space-ten"></div>
+              </div>
+            </div>
+    </div>
+     <div class="row">
+        
+            <div class="col-md-4">
+              <div class="thumbnail">
+                <%= link_to image_tag("sach.jpg",width: 136, height: 67, alt: "Rails logo")%>
+                <div class="caption">
+                  <h4><a href=  "#">toi thay hoa vang tren co xanh</a></h4>
+                  <h4>Ngon  tinh</h4>
+                <div class="ratings">
+                  <p>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                     (15 reviews)
+                  </p>
+                </div>
+                <div class="space-ten"></div>
+                <div class="btn-ground text-center">
+                    <!-- <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button> -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i> Quick View</button>
                 </div>
                 <div class="space-ten"></div>

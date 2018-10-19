@@ -23,6 +23,9 @@
 
       <%= b.label :category_id %>
       <%= b.text_field :category_id, class: 'form-control' %>
+
+      <%= b.label :picture %>
+      <%= b.file_field :picture%>
       
       <%= b.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

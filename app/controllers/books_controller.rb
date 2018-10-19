@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+	before_action :logged_in, only:[:create, :edit, :update, :destroy]
 	def new
 		@book = current_user.books.new
 	end

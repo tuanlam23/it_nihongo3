@@ -16,7 +16,8 @@ gem "bcrypt",         "3.1.12"
 gem "jquery-rails"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "figaro"
-
+gem "cloudinary"
+gem "carrierwave-base64"
 gem "carrierwave"
 gem "mini_magick", "4.7.0"
 
