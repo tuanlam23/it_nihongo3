@@ -9,14 +9,31 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="search-wrapper section-padding-100">
+      <div class="search-close">
+        <i class="fa fa-close" aria-hidden="true"></i>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="search-content">
+              <form action="#" method="get">
+                <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                <button type="submit"><%= image_tag("search.png") %></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content-wrapper d-flex clearfix">
+      <%= render 'layouts/header' %>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
