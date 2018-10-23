@@ -1,6 +1,5 @@
 <% provide(:title, 'Create Book') %>
-<% provide(:button_text, 'Create Book') %>
-<h1>Create Book </h1>
+<!-- <h1>Create Book </h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -29,5 +28,55 @@
       
       <%= b.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+  </div>
+</div> -->
+
+<div class="cart-table-area section-padding-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <%= form_for(@book) do |f| %>
+        <div class="checkout_details_area mt-50 clearfix">
+          <div class="cart-title">
+            <h2>Create Book</h2>
+          </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <%= f.label :title %>
+                <%= f.text_field :title, class:"form-control" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :author %>
+                <%= f.text_field :author, class:"form-control" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :issue_date %>
+                <%= f.date_field :issue_date, class: 'form-control' %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :publishing_company %>
+                <%= f.text_field :publishing_company, class: 'form-control' %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :category %><br>
+                <%= f.select :category_id, Category.all.collect { |p| [ p.category_name, p.id ] }, {}, {class: "w-100"} %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :picture %><br>
+                <%= f.file_field :picture %>
+              </div>
+            </div>
+            <div class="cart-btn">
+              <%= f.submit "Create Book", class:"btn amado-btn w-100" %>
+            </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="cart-summary">
+          <%= image_tag("book_background.jpg") %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
