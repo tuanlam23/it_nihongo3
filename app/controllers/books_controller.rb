@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
   before_action :logged_in?, only: [:create, :edit, :update, :destroy]
   before_action :find_book, only: [:show, :update]
+  before_action :find_category, only: :index
+
+  def index
+    @books = Book.order("created_at DESC")
+    @categories = Category.all
+  end
 
   def new
     @book = current_user.books.new
@@ -40,9 +46,17 @@ class BooksController < ApplicationController
     end
   end
 
+  def show_by_category
+    @category = Category.find_by id: params[:category_id]
+    @books = category.books
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
-  attr_reader :book
+  attr_reader :book, :category
 
   def book_params
     params.require(:book).permit(:title, :author, :issue_date, :publishing_company,:description,
@@ -51,5 +65,9 @@ class BooksController < ApplicationController
 
   def find_book
     @book = Book.find_by id: params[:id]
+  end
+
+  def find_category
+    @category = Category.find_by id: params[:category_id]
   end
 end

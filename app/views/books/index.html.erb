@@ -1,0 +1,19 @@
+<div class="shop_sidebar_area">
+  <div class="widget catagory mb-50">
+    <h6 class="widget-title mb-30">Catagories</h6>
+    <div class="catagories-menu">
+      <ul>
+        <% @categories.each do |category| %>
+          <li>
+            <%= link_to category.category_name, book_show_by_category_path(1, category_id: category.id), remote: true  %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="amado_product_area section-padding-100">
+  <div class="container-fluid" id="show-by-category">
+    <%= render "show_by_category" %>
+  </div>
+</div>
