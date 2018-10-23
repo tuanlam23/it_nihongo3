@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :books do
     get "change_form"
+    get "show_by_category"
   end
   resources :users
   resources :account_activations, only: [:edit]
