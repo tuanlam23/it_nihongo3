@@ -4,44 +4,59 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-lg-8">
+        <%= form_for(@user) do |f| %>
         <div class="checkout_details_area mt-50 clearfix">
           <div class="cart-title">
             <h2><%= @user.name %></h2>
           </div>
-          <%= form_for(@user) do |f| %>
             <div class="row">
-              <%= render "shared/error_messages", object: @user %>
               <div class="col-12 mb-3">
+                <%= f.label :name %>
                 <%= f.text_field :name, class:"form-control",
                   placeholder: @user.name %>
               </div>
               <div class="col-12 mb-3">
+                <%= f.label :email %>
                 <%= f.text_field :email, class:"form-control",
                   placeholder: @user.email %>
               </div>
               <div class="col-12 mb-3">
+                <%= f.label :login_name %>
                 <%= f.text_field :login_name, class:"form-control",
                   placeholder: @user.login_name %>
               </div>
               <div class="col-12 mb-3">
+                <%= f.label :gender %>
                 <%= f.select :gender, [["Male"], ["Female"], ["Other"]], {}, {class: "w-100"}  %>
               </div>
               <div class="col-12 mb-3">
+                <%= f.label :password %>
                 <%= f.password_field :password, class: "form-control",
                   placeholder: "Password" %>
               </div>
               <div class="col-12 mb-3">
+                <%= f.label :password_confirmation %>
                 <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :avatar %><br>
+                <%= f.file_field :avatar %>
               </div>
             </div>
             <div class="cart-btn">
               <%= f.submit "Save Changes", class:"btn amado-btn w-100" %>
             </div>
-          <% end %>
         </div>
+        <% end %>
       </div>
       <div class="col-12 col-lg-4">
         <div class="cart-summary">
+          <% if @user.avatar.present? %>
+            <%= cl_image_tag(@user.avatar) %>
+          <% else %>
+            <%= image_tag("avatar-default.png") %><br><br>
+          <% end %>
+          <br><br>
           <h5>Information</h5>
           <ul class="summary-table">
             <li>
