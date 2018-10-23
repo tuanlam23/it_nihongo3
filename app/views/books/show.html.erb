@@ -9,7 +9,11 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
-                  <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                  <% if @book.picture.present? %>
+                    <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                  <% else %>
+                    <%= image_tag("default_book.jpg", class:"d-block w-100") %>
+                  <% end %>
                 </a>
               </div>
             </div>
