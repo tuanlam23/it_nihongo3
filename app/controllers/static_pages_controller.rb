@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	@books = Book.all
-  	@user = current_user
+  	@books = Book.order("created_at DESC")
   end
 
   def help
