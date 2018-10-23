@@ -41,26 +41,8 @@
               </div>
             </div>
           </div>
-          <div class="short_overview my-5">
-            <p>Author:
-              <b><%= @book.author %></b>
-            </p>
-            <br>
-            <p>Publishing Company:
-              <b><%= @book.publishing_company %></b>
-            </p>
-            <br>
-            <p>Category:
-              <b><%= @book.category.category_name %></b>
-            </p>
-            <br>
-            <p>Issue Data:
-              <b><%= @book.issue_date %></b>
-            </p>
-            <br>
-            <p>Description:
-              <b><%= @book.description %></b>
-            </p>
+          <div class="short_overview my-5" id="form">
+            <%= render "information" %>
           </div>
         </div>
       </div>

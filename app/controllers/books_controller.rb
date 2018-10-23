@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
-  before_action :logged_in?, only:[:create, :edit, :update, :destroy]
+  before_action :logged_in?, only: [:create, :edit, :update, :destroy]
+  before_action :find_book, only: [:show, :update]
 
   def new
     @book = current_user.books.new
   end
   
   def show
-    @book = Book.find(params[:id])
   end
 
   def create
@@ -23,10 +23,33 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def update
+    if book.update_attributes book_params
+      flash[:success] = "Update Book Information Successfully!!!"
+      redirect_to book
+    else
+      flash[:fail] = "Can't Update Now. Please Try Again. (!^_^)"
+      redirect_to book
+    end
+  end
+
+  def change_form
+    @book = Book.find_by id: params[:book_id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
+
+  attr_reader :book
 
   def book_params
     params.require(:book).permit(:title, :author, :issue_date, :publishing_company,:description,
     :picture,:category_id)
+  end
+
+  def find_book
+    @book = Book.find_by id: params[:id]
   end
 end
