@@ -1,3 +1,3 @@
 class Review < ApplicationRecord
-	belong_to :book
+	belongs_to :book
 end
