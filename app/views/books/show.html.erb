@@ -1,15 +1,65 @@
 <% provide(:title, @book.title) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="book_info">
-      <h1>
-                <%= link_to image_tag("sach.jpg",width: 136, height: 67, alt: "Rails logo")%>
-                <div class="caption">
-                  <h4><a href=  "#"><%= @book.title %></a></h4>
-                  <h4><%= @book.author%></h4>
-                  <p></p>
-                </div>
-      </h1>
-    </section>
-  </aside>
+
+<div class="single-product-area section-padding-100 clearfix">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-7">
+        <div class="single_product_thumb">
+          <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
+                  <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="single_product_desc">
+          <div class="product-meta-data">
+            <div class="line"></div>
+            <!-- <p class="product-price">$180</p> -->
+            <%= link_to @book do %>
+              <h6><%= @book.title %></h6>
+            <% end %>
+            <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
+              <div class="ratings">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="review">
+                <a href="#">Write A Review</a>
+              </div>
+            </div>
+          </div>
+          <div class="short_overview my-5">
+            <p>Author:
+              <b><%= @book.author %></b>
+            </p>
+            <br>
+            <p>Publishing Company:
+              <b><%= @book.publishing_company %></b>
+            </p>
+            <br>
+            <p>Category:
+              <b><%= @book.category.category_name %></b>
+            </p>
+            <br>
+            <p>Issue Data:
+              <b><%= @book.issue_date %></b>
+            </p>
+            <br>
+            <p>Description:
+              <b><%= @book.description %></b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
