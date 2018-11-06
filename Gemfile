@@ -24,6 +24,9 @@ gem "font-awesome-rails"
 gem "pry"
 gem "faker"
 gem "ratyrate"
+gem "kaminari" 
+gem "ransack"
+gem "bootstrap-kaminari-views"
 
 group :production do
   gem "pg",  "0.20.0"
