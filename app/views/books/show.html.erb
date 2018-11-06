@@ -9,7 +9,11 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
-                  <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                  <% if @book.picture.present? %>
+                    <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                  <% else %>
+                    <%= image_tag("default_book.jpg", class:"d-block w-100") %>
+                  <% end %>
                 </a>
               </div>
             </div>
@@ -37,26 +41,8 @@
               </div>
             </div>
           </div>
-          <div class="short_overview my-5">
-            <p>Author:
-              <b><%= @book.author %></b>
-            </p>
-            <br>
-            <p>Publishing Company:
-              <b><%= @book.publishing_company %></b>
-            </p>
-            <br>
-            <p>Category:
-              <b><%= @book.category.category_name %></b>
-            </p>
-            <br>
-            <p>Issue Data:
-              <b><%= @book.issue_date %></b>
-            </p>
-            <br>
-            <p>Description:
-              <b><%= @book.description %></b>
-            </p>
+          <div class="short_overview my-5" id="form">
+            <%= render "information" %>
           </div>
         </div>
       </div>
