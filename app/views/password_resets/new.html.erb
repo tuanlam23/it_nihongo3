@@ -1,0 +1,28 @@
+<% provide(:title, "Forgot password") %>
+<div class="cart-table-area section-padding-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+         <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <div class="checkout_details_area mt-50 clearfix">
+          <div class="cart-title">
+            <h2>Forgot Password</h2>
+          </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <%= f.label :email %>
+                <%= f.text_field :email, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="cart-btn">
+              <%= f.submit "Send", class:"btn amado-btn w-100" %>
+            </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-12 col-lg-4">
+        <%= image_tag("book_background.jpg") %>
+      </div>
+    </div>
+  </div>
+</div>

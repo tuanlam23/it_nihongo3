@@ -1,5 +1,4 @@
 <% provide(:title, @book.title) %>
-
 <div class="single-product-area section-padding-100 clearfix">
   <div class="container-fluid">
     <div class="row">
@@ -10,7 +9,7 @@
               <div class="carousel-item active">
                 <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
                   <% if @book.picture.present? %>
-                    <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                    <%= cl_image_tag(@book.picture, {:style => "height:600px;"}) %>
                   <% else %>
                     <%= image_tag("default_book.jpg", class:"d-block w-100") %>
                   <% end %>

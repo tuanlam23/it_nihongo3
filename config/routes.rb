@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   post '/rate' => 'rater#create', :as => 'rate'
   get 'sessions/new'
   root 'static_pages#home'
@@ -17,4 +19,5 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :comments, only: [:create]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
