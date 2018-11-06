@@ -5,7 +5,8 @@
     login_name: Faker::Hacker.verb,
     gender: "Male",
     password: "123456",
-    password_confirmation: "123456"
+    password_confirmation: "123456",
+    activated: true
   )
 end
 
