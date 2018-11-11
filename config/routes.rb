@@ -15,9 +15,10 @@ Rails.application.routes.draw do
     get "show_by_category"
     resources :likes, only: [:create, :destroy]
     get "generate_comment_form"
+    get "generate_edit_form"
   end
   resources :users
   resources :account_activations, only: [:edit]
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:create, :update, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
 end
