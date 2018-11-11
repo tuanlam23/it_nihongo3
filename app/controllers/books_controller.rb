@@ -62,6 +62,14 @@ class BooksController < ApplicationController
     end
   end
 
+  def generate_edit_form
+    @book = Book.find_by id: params[:book_id]
+    @comment = Comment.find_by id: params[:comment_id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   attr_reader :book, :category

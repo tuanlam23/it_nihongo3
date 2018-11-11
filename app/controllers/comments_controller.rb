@@ -1,12 +1,21 @@
 class CommentsController < ApplicationController
   before_action :find_book, only: :create
-  before_action :find_comment, only: :destroy
+  before_action :find_comment, only: %i(update destroy)
 
   def create
     @comments = book.comments
     @comment = book.comments.new comment_params
     comment.user = current_user
     if comment.save
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def update
+    @book = comment.book
+    if comment.update_attributes comment_params
       respond_to do |format|
         format.js
       end

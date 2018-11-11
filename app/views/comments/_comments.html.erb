@@ -1,5 +1,7 @@
 <section id="app" class="comments">
   <% @comments.each do |comment| %>
-    <%= render "comments/comment", comment: comment %>
+    <div id="comment-<%= comment.id %>">
+      <%= render "comments/comment", comment: comment %>
+    </div>
   <% end %>
 </section>
