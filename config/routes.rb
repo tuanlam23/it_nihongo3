@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :account_activations, only: [:edit]
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
 end
