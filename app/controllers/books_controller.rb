@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   end
   
   def show
+    @comments = book.comments
   end
 
   def create
@@ -49,6 +50,21 @@ class BooksController < ApplicationController
   def show_by_category
     @category = Category.find_by id: params[:category_id]
     @books = category.books
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def generate_comment_form
+    @book = Book.find_by id: params[:book_id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def generate_edit_form
+    @book = Book.find_by id: params[:book_id]
+    @comment = Comment.find_by id: params[:comment_id]
     respond_to do |format|
       format.js
     end

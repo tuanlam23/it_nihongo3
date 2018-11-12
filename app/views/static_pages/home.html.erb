@@ -4,21 +4,25 @@
   <div class="amado-pro-catagory ">
     <div class="row">
       <% @books.each do |book| %>
-        <div class="single-products-catagory ">
-          <%= link_to book do %>
-            <% if book.picture.present? %>
-              <%= cl_image_tag(book.picture, {:style => "height:650px;"}) %>
-            <% else %>
-              <%= image_tag("default_book.jpg", {:style => "height:650px;"}) %>
+        <div class="col-6 col-sm-4 col-md-6 col-xl-4">
+          <div class="single-products-wrapper ">
+            <%= link_to book do %>
+              <% if book.picture.present? %>
+                <%= cl_image_tag(book.picture, {:style => "height:500px;"}) %>
+              <% else %>
+                <%= image_tag("default_book.jpg", {:style => "height:500px;"}) %>
+              <% end %>
+              <div class="hover-content">
+                <div class="line"></div>
+                <p><%= book.author %></p>
+                <h4><%= book.title %></h4>
+              </div>
             <% end %>
-            <div class="hover-content">
-              <div class="line"></div>
-              <p><%= book.author %></p>
-              <h4><%= book.title %></h4>
-            </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
+      <%= paginate @books, theme: 'twitter-bootstrap-3' %>
     </div>
   </div>
 </div>
+

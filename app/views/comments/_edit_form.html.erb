@@ -1,0 +1,14 @@
+<article>
+  <% if current_user.avatar.present? %>
+    <%= cl_image_tag(current_user.avatar) %>
+  <% else %>
+    <%= image_tag("avatar-default.png") %>
+  <% end %>
+  <h4><%= current_user.name %></h4>
+  <like></like>
+  <%= form_for :comment, url: comment_path(@comment), method: :patch, remote: true do |f| %>
+    <%= hidden_field_tag :book_id, @book.id %>
+    <%= f.text_area :content, size: "60x3" %>
+    <%= f.submit "Edit Comment" %>
+  <% end %>
+</article>

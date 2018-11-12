@@ -1,5 +1,4 @@
 <% provide(:title, @book.title) %>
-
 <div class="single-product-area section-padding-100 clearfix">
   <div class="container-fluid">
     <div class="row">
@@ -10,7 +9,7 @@
               <div class="carousel-item active">
                 <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
                   <% if @book.picture.present? %>
-                    <%= cl_image_tag(@book.picture, class:"d-block w-100") %>
+                    <%= cl_image_tag(@book.picture, {:style => "height:600px;"}) %>
                   <% else %>
                     <%= image_tag("default_book.jpg", class:"d-block w-100") %>
                   <% end %>
@@ -30,19 +29,28 @@
             <% end %>
             <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
               <div class="ratings">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
+                  <%= rating_for @book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
+                  Total vote: <%= @book.rates("quality").count %>
+                  <br>
+                  <% unless @book.rates("quality").count == 0 %> 
+                    Average Score: <%= @book.average("quality").avg %>
+                  <% end %>
               </div>
               <div class="review">
-                <a href="#">Write A Review</a>
+                <div id="like-form">
+                  <%= render "likes/like_form" %><br>
+                </div>
+                <% if logged_in? %>
+                  <%= link_to "Write A Review", book_generate_comment_form_path(@book), remote: true %>
+                <% end %>
               </div>
             </div>
           </div>
           <div class="short_overview my-5" id="form">
             <%= render "information" %>
+          </div>
+          <div id="comment_div">
+            <%= render "comments/comment_div" %>
           </div>
         </div>
       </div>

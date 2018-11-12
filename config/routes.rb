@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
+  post '/rate' => 'rater#create', :as => 'rate'
   get 'sessions/new'
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
@@ -10,7 +13,12 @@ Rails.application.routes.draw do
   resources :books do
     get "change_form"
     get "show_by_category"
+    resources :likes, only: [:create, :destroy]
+    get "generate_comment_form"
+    get "generate_edit_form"
   end
   resources :users
   resources :account_activations, only: [:edit]
+  resources :comments, only: [:create, :update, :destroy]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
