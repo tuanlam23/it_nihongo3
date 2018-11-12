@@ -7,12 +7,8 @@ class Admin::BooksController < ApplicationController
 
   def destroy
     @book = Book.find_by id: params[:id]
-    if book.present?
-      if book.destroy
-        redirect_to admin_books_path
-      else
-        redirect_to admin_books_path
-      end
+    if book.destroy
+      redirect_to admin_books_path
     else
       redirect_to admin_books_path
     end
