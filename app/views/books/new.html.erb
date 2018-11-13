@@ -34,6 +34,10 @@
                 <%= f.label :picture %><br>
                 <%= f.file_field :picture %>
               </div>
+              <div class="col-12 mb-3">
+                <%= f.label :description %>
+                <%= text_area :book, :description, :rows => 2, :cols => 70, class: "form-control" %>
+              </div>
             </div>
             <div class="cart-btn">
               <%= f.submit "Create Book", class:"btn amado-btn w-100" %>
