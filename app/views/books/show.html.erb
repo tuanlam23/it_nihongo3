@@ -9,9 +9,9 @@
               <div class="carousel-item active">
                 <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
                   <% if @book.picture.present? %>
-                    <%= cl_image_tag(@book.picture, {:style => "height:600px;"}) %>
+                    <%= cl_image_tag(@book.picture, {:style => "height:600px; display: block; margin-left: auto; margin-right:auto;"}) %>
                   <% else %>
-                    <%= image_tag("default_book.jpg", class:"d-block w-100") %>
+                    <%= image_tag("default_book.jpg", {:style => "height:600px; display: block; margin-left: auto; margin-right:auto;"}) %>
                   <% end %>
                 </a>
               </div>
@@ -30,11 +30,7 @@
             <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
               <div class="ratings">
                   <%= rating_for @book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
-                  Total vote: <%= @book.rates("quality").count %>
-                  <br>
-                  <% unless @book.rates("quality").count == 0 %> 
-                    Average Score: <%= @book.average("quality").avg %>
-                  <% end %>
+                  
               </div>
               <div class="review">
                 <div id="like-form">

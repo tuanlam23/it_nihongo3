@@ -20,9 +20,19 @@
                 <p><%= book.author %></p>
                 <h4><%= book.title %></h4>
               </div>
+              
+            <% end %>
+          </div>
+          <div class="ratings">
+            <%= rating_for book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
+            Total vote: <%= book.rates("quality").count %>
+            <br>
+            <% unless book.rates("quality").count == 0 %> 
+            Average Score: <%= sprintf "%.2f", book.average("quality").avg %>
             <% end %>
           </div>
         </div>
+        
       <% end %>
       <%= paginate @books, theme: 'twitter-bootstrap-3' %>
     </div>

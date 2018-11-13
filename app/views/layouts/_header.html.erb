@@ -18,7 +18,7 @@
     </li>
     <% if logged_in? %>
       <li>
-        <%= link_to current_user.name, current_user %>
+        <%= link_to "My profile", current_user %>
       </li>
       <li>
         <%= link_to "Create Book", new_book_path %>
