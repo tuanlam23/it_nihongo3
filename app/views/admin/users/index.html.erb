@@ -1,0 +1,42 @@
+<%= provide :title, "Manage User" %>
+
+<div class="cart-table-area section-padding-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-9">
+        <h2>Manage User</h2>
+
+        <table class="table">
+          <thead>
+            <tr class="d-flex">
+              <th class="col-1">Name</th>
+              <th class="col-1">Login Name</th>
+              <th class="col-1">Email</th>
+              <th class="col-1">Gender</th>
+              <th class="col-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+             <% if user.is_admin == false%>
+              <tr class="d-flex">
+                <td class="col-1"><%= user.name %></td>
+                <td class="col-1"><%= user.login_name %></td>
+                <td class="col-1"><%= user.email %></td>
+                <td class="col-1"><%= user.gender %></td>
+                <td class="col-1">
+                  <%= link_to admin_user_path(user), method: :delete do %>
+                    <i class="fa fa-trash fa-3x"></i>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= paginate @users, theme: 'twitter-bootstrap-3' %>
+      </div>
+    </div>
+  </div>
+</div>

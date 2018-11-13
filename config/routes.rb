@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :books, only: [:index, :destroy]
+    resources :users, only: [:index, :destroy]
   end
 end
