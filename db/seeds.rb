@@ -6,7 +6,8 @@
     gender: "Male",
     password: "123456",
     password_confirmation: "123456",
-    activated: true
+    activated: true,
+    is_admin: false
   )
 end
 
@@ -35,3 +36,14 @@ end
     book_id: 1 + rand(100)
   )
 end
+
+User.create!(
+    name: "lien",
+    email: Faker::Internet.unique.email,
+    login_name: "lien",
+    gender: "Male",
+    password: "123456",
+    password_confirmation: "123456",
+    activated: true,
+    is_admin: true
+  )
