@@ -3,7 +3,6 @@
     <div class="product-topbar d-xl-flex align-items-end justify-content-between">
       <div class="total-products">
         <p><%= @books.count %> found</p>
-        <p>Showing 1-8 0f 25</p>
       </div>
     </div>
   </div>
@@ -37,9 +36,14 @@
             <!-- Ratings & Cart -->
             <div class="ratings-cart text-right">
               <div class="ratings">
-                <% if current_user.present? %>
-                  <%= rating_for book, "quality", star: 5, cancel: true %>
+                <div class="ratings">
+                <%= rating_for book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
+                Total vote: <%= book.rates("quality").count %>
+                <br>
+                <% unless book.rates("quality").count == 0 %>
+                Average Score: <%= sprintf "%.2f", book.average("quality").avg %>
                 <% end %>
+                </div>
               </div>
               <div class="cart">
                 <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>

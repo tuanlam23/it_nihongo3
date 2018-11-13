@@ -25,7 +25,8 @@ end
     publishing_company: Faker::Book.publisher,
     description: Faker::HarryPotter.quote * 3,
     category_id: 1 + rand(15),
-    user_id: 1 + rand(10)
+    user_id: 1 + rand(10),
+    issue_date: 2018-11-13
   )
 end
 
