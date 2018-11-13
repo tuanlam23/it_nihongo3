@@ -9,9 +9,9 @@
         <table class="table">
           <thead>
             <tr class="d-flex">
+              <th class="col-1" display: block; margin-left: auto; margin-right:auto>Picture</th>
               <th class="col-1">Title</th>
               <th class="col-1">Author</th>
-              <th class="col-1">Issue Date</th>
               <th class="col-1">Publishing Company</th>
               <th class="col-5">Description</th>
               <th class="col-1">Action</th>
@@ -20,9 +20,13 @@
           <tbody>
             <% @books.each do |book| %>
               <tr class="d-flex">
+                <td class="col-1"><% if book.picture.present? %>
+                    <%= cl_image_tag(book.picture, {:style => "height:200px;"}) %>
+                  <% else %>
+                    <%= image_tag("default_book.jpg", {:style => "height:200px;"}) %>
+                  <% end %></td>
                 <td class="col-1"><%= book.title %></td>
                 <td class="col-1"><%= book.author %></td>
-                <td class="col-1"><%= book.issue_date %></td>
                 <td class="col-1"><%= book.publishing_company %></td>
                 <td class="col-5"><%= book.description %></td>
                 <td class="col-1">
@@ -35,7 +39,9 @@
           </tbody>
         </table>
 
+        <div class="digg_pagination">
         <%= paginate @books, theme: 'twitter-bootstrap-3' %>
+      </div>
       </div>
     </div>
   </div>
