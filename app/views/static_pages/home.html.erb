@@ -11,25 +11,25 @@
           <div class="single-products-wrapper ">
             <%= link_to book do %>
               <% if book.picture.present? %>
-                <%= cl_image_tag(book.picture, {:style => "height:500px;"}) %>
+                <%= cl_image_tag(book.picture, {:style => "height:350px;"}) %>
               <% else %>
-                <%= image_tag("default_book.jpg", {:style => "height:500px;"}) %>
+                <%= image_tag("default_book.jpg", {:style => "height:350px;"}) %>
               <% end %>
               <div class="hover-content">
                 <div class="line"></div>
-                <p><%= book.author %></p>
                 <h4><%= book.title %></h4>
+                <span><%= book.author %></span>
               </div>
-
             <% end %>
           </div>
           <div class="ratings">
             <%= rating_for book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
-            Total vote: <%= book.rates("quality").count %>
+            <div class="font-rating">
+              (Total vote: <%= book.rates("quality").count %>)
             <br>
             <% unless book.rates("quality").count == 0 %>
             Average Score: <%= sprintf "%.2f", book.average("quality").avg %>
-            <% end %>
+            <% end %></div>
           </div>
         </div>
 

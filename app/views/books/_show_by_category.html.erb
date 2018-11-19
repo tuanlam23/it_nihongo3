@@ -2,7 +2,7 @@
   <div class="col-12">
     <div class="product-topbar d-xl-flex align-items-end justify-content-between">
       <div class="total-products">
-        <p><%= @books.count %> found</p>
+        <p>total books: <%= @books.count %></p>
       </div>
     </div>
   </div>
@@ -17,9 +17,9 @@
             <div class="product-img">
               <!-- <img src="img/product-img/product1.jpg" alt=""> -->
               <% if book.picture.present? %>
-                <%= cl_image_tag(book.picture, {:style => "height:750px;"}) %>
+                <%= cl_image_tag(book.picture, {:style => "height:500px;"}) %>
               <% else %>
-                <%= image_tag("default_book.jpg", {:style => "height:750px;"}) %>
+                <%= image_tag("default_book.jpg", {:style => "height:500px;"}) %>
               <% end %>
             </div>
           <% end %>
@@ -30,27 +30,24 @@
               <div class="line"></div>
               <a href="product-details.html">
                 <h4><%= book.title %></h4>
-                <p><%= book.author %></p>
+                <span><%= book.author %></span>
               </a>
             </div>
-            <!-- Ratings & Cart -->
-            <div class="ratings-cart text-right">
-              <div class="ratings">
-                <div class="ratings">
+    
+                
+          </div>
+          <div class="ratings">
                 <%= rating_for book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
-                Total vote: <%= book.rates("quality").count %>
+                <div class="font-rating">
+                (Total vote: <%= book.rates("quality").count %>)
                 <br>
                 <% unless book.rates("quality").count == 0 %>
                 Average Score: <%= sprintf "%.2f", book.average("quality").avg %>
                 <% end %>
                 </div>
-              </div>
-              <div class="cart">
-                <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
-              </div>
-            </div>
-          </div>
+                </div>
       </div>
+      
     </div>
   <% end %>
 </div>
