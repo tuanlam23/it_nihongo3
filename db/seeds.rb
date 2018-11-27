@@ -17,7 +17,6 @@ end
     category_description: Faker::Community.quotes
   )
 end
-uploader  = File.open(File.join(Rails.root,'app/assets/images/vcl.jpg'))
 20.times do
   Book.create!(
     title: Faker::Book.title,
@@ -26,8 +25,7 @@ uploader  = File.open(File.join(Rails.root,'app/assets/images/vcl.jpg'))
     description: Faker::HarryPotter.quote * 3,
     category_id: 1 + rand(10),
     user_id: 1 + rand(10),
-    issue_date: 2018-11-13,
-    picture: uploader
+    issue_date: 2018-11-13
   )
 end
 
