@@ -7,13 +7,13 @@
     <% end %>
     <div class="row">
       <% @books.each do |book| %>
-        <div class="col-4 col-sm-4 col-md-4 col-xl-4">
+        <div class="col-6 col-sm-4 col-md-6 col-xl-4">
           <div class="single-products-wrapper ">
             <%= link_to book do %>
               <% if book.picture.present? %>
-                <%= cl_image_tag(book.picture, {:style => "height:300px;width:300px"}) %>
+                <%= cl_image_tag(book.picture, {:style => "height:350px;"}) %>
               <% else %>
-                <%= image_tag("default_book.jpg", {:style => "height:300px;width:300px"}) %>
+                <%= image_tag("default_book.jpg", {:style => "height:350px;"}) %>
               <% end %>
               <div class="hover-content">
                 <div class="line"></div>
