@@ -22,7 +22,7 @@ end
   Book.create!(
     title: Faker::Book.title,
     author: Faker::Book.author,
-    publishing_company: Faker::Book.publisher,
+    publishing_company: Fake_r::Book.publisher,
     description: Faker::HarryPotter.quote * 3,
     category_id: 1 + rand(15),
     user_id: 1 + rand(10),
