@@ -11,30 +11,32 @@
   )
 end
 
-15.times do
+10.times do
   Category.create!(
     category_name: Faker::Book.unique.genre,
     category_description: Faker::Community.quotes
   )
 end
-
-100.times do
+uploader  = File.open(File.join(Rails.root,'app/assets/images/vcl.jpg'))
+20.times do
   Book.create!(
     title: Faker::Book.title,
     author: Faker::Book.author,
-    publishing_company: Fake_r::Book.publisher,
+    publishing_company: Faker::Book.publisher,
     description: Faker::HarryPotter.quote * 3,
-    category_id: 1 + rand(15),
+    category_id: 1 + rand(10),
     user_id: 1 + rand(10),
-    issue_date: 2018-11-13
+    issue_date: 2018-11-13,
+    picture: uploader
   )
 end
 
-100.times do
+
+20.times do
   Review.create!(
     review_content: Faker::HarryPotter.quote * 3,
     user_id: 1 + rand(10),
-    book_id: 1 + rand(100)
+    book_id: 1 + rand(20)
   )
 end
 

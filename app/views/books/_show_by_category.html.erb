@@ -17,9 +17,9 @@
             <div class="product-img">
               <!-- <img src="img/product-img/product1.jpg" alt=""> -->
               <% if book.picture.present? %>
-                <%= cl_image_tag(book.picture, {:style => "height:300px;"}) %>
+                <%= cl_image_tag(book.picture, {:style => "height:500px;"}) %>
               <% else %>
-                <%= image_tag("default_book.jpg", {:style => "height:300px;"}) %>
+                <%= image_tag("default_book.jpg", {:style => "height:500px;"}) %>
               <% end %>
             </div>
             <div class="hover-content">
