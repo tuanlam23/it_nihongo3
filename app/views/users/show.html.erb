@@ -1,6 +1,15 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 <% provide(:title, @user.name) %>
 
-<div class="cart-table-area section-padding-100">
+<!--<div class="cart-table-area section-padding-100">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-lg-8">
@@ -76,4 +85,188 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
+
+
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<hr>
+<div class="container bootstrap snippet">
+    <!--<div class="row">
+  		<div class="col-sm-10"><h1><%= @user.name %></h1></div>
+    	<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+    </div>-->
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+
+      <div class="text-center">
+        <!--<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">-->
+        <% if @user.avatar.present? %>
+            <%=image_tag @user.avatar_url(), :class => "avatar img-circle img-thumbnail", :alt =>"avatar" %>
+          <% else %>
+            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <% end %>
+         <h3><%= @user.name %></h3>
+      </div></hr><br>
+
+               
+          <div class="panel panel-default">
+            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+          </div>
+          
+          
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+          </ul> 
+          
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Profile Information</a></li>
+                <li><a data-toggle="tab" href="#edit">Edit Profile</a></li>
+                <li><a data-toggle="tab" href="#follow">Follow</a></li>
+              </ul>
+
+              
+          <div class="tab-content">
+            
+            <div class="tab-pane active" id="home">
+               
+               <h2></h2>
+               
+               <hr>
+                 
+                <ul>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label>User Name</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p><%= @user.name%></p>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label>Login Name</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p><%= @user.name%></p>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label>Email</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p><%= @user.email%></p>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label>Gender</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p><%= @user.gender%></p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <span>created at:</span>
+                    <span><%= @user.created_at %></span>
+                  </div>
+                </ul>  
+                
+            </div><!--/tab-pane-->
+            
+            <div class="tab-pane" id="edit">
+                <hr>
+                  <%= form_for(@user) do |f| %>
+                    <div class="row">
+              <div class="col-6">
+                <%= f.label :name %>
+                <%= f.text_field :name, class:"form-control",
+                  placeholder: @user.name %>
+              </div>
+              <div class="col-6">
+                <%= f.label :email %>
+                <%= f.text_field :email, class:"form-control",
+                  placeholder: @user.email %>
+              </div>
+              <div class="col-6">
+                <%= f.label :login_name %>
+                <%= f.text_field :login_name, class:"form-control",
+                  placeholder: @user.login_name %>
+              </div>
+              <div class="col-6">
+                <%= f.label :gender %>
+                <%= f.select :gender, [["Male"], ["Female"], ["Other"]], {}, {class: "w-100"}  %>
+              </div>
+              <div class="col-6">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control",
+                  placeholder: "Password" %>
+              </div>
+              <div class="col-6">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
+              </div>
+              <div class="col-6">
+                <%= f.label :avatar %><br>
+                <% if @user.avatar.present? %>
+            <%=image_tag @user.avatar_url(), :class => "avatar img-circle img-thumbnail", :alt =>"avatar" %>
+          <% else %>
+            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <% end %>
+        <h6>Upload a different photo...</h6>
+        <%= f.file_field :avatar, :class=>"text-center center-block file-upload" %>
+        
+              </div>
+            </div>
+            
+            <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <%= f.submit "Save Changes", class:"btn btn-lg btn-success" %>
+                            </div>
+                      </div>
+                      <% end %>
+              	
+              
+              <hr>
+              
+             </div><!--/tab-pane-->
+            
+             <div class="tab-pane" id="follow">
+            		
+               	
+                  <hr>
+                  
+              </div>
+               
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+    
