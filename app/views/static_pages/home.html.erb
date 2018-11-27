@@ -13,7 +13,7 @@
               <% if book.picture.present? %>
                 <%= cl_image_tag(book.picture, {:style => "height:350px;"}) %>
               <% else %>
-                <%= image_tag("default_book.jpg", {:style => "height:350px;"}) %>
+                <%= image_tag(image_for_book, {:style => "height:350px;"}) %>
               <% end %>
               <div class="hover-content">
                 <div class="line"></div>

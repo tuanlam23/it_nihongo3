@@ -23,7 +23,7 @@
                 <td class="col-1"><% if book.picture.present? %>
                     <%= cl_image_tag(book.picture, {:style => "height:200px;"}) %>
                   <% else %>
-                    <%= image_tag("default_book.jpg", {:style => "height:200px;"}) %>
+                    <%= image_tag(image_for_book, {:style => "height:200px;"}) %>
                   <% end %></td>
                 <td class="col-1"><%= book.title %></td>
                 <td class="col-1"><%= book.author %></td>
