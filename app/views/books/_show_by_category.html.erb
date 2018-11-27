@@ -10,29 +10,28 @@
 <div class="row">
   <!-- Single Product Area -->
   <% @books.each do |book| %>
-    <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+    <div class="col-6 col-sm-6 col-md-6 col-xl-6">
       <div class="single-product-wrapper">
         <!-- Product Image -->
           <%= link_to book do %>
             <div class="product-img">
               <!-- <img src="img/product-img/product1.jpg" alt=""> -->
               <% if book.picture.present? %>
-                <%= cl_image_tag(book.picture, {:style => "height:500px;"}) %>
+                <%= cl_image_tag(book.picture, {:style => "height:300px;"}) %>
               <% else %>
-                <%= image_tag("default_book.jpg", {:style => "height:500px;"}) %>
+                <%= image_tag("default_book.jpg", {:style => "height:300px;"}) %>
               <% end %>
             </div>
+            <div class="hover-content">
+                <div class="line"></div>
+                <h4><%= book.title %></h4>
+                <span><%= book.author %></span>
+              </div>
           <% end %>
           <!-- Product Description -->
           <div class="product-description d-flex align-items-center justify-content-between">
             <!-- Product Meta Data -->
-            <div class="product-meta-data">
-              <div class="line"></div>
-              <a href="product-details.html">
-                <h4><%= book.title %></h4>
-                <span><%= book.author %></span>
-              </a>
-            </div>
+            
     
                 
           </div>
