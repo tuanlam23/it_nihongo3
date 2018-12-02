@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :find_category, only: :index
 
   def index
-    @books = Book.order("created_at DESC")
+    @books = Book.order("created_at DESC").page(params[:page]).per(8)
     @categories = Category.all
   end
 
@@ -49,7 +49,7 @@ class BooksController < ApplicationController
 
   def show_by_category
     @category = Category.find_by id: params[:category_id]
-    @books = category.books
+    @books = category.books.page(params[:page]).per(8)
     respond_to do |format|
       format.js
     end
