@@ -4,6 +4,7 @@
   <div class="amado-pro-catagory ">
     <% if params[:title].present? %>
     <h1><%= params[:title] %>'s Result Search</h1>
+    <h2><%= @books.count %> found </h2>
     <% end %>
     <div class="row">
       <% @books.each do |book| %>
