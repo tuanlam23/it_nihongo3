@@ -3,7 +3,6 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-lg-7">
-        <div class="single_product_thumb">
           <div id="product_details_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -17,7 +16,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
       <div class="col-12 col-lg-5">
         <div class="single_product_desc">
@@ -30,7 +28,6 @@
             <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
               <div class="ratings">
                   <%= rating_for @book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
-                  
               </div>
               <div class="review">
                 <div id="like-form">
@@ -47,7 +44,6 @@
               <% end %>
             <% end %>
           </div>
-          
         </div>
       </div>
       <div class="clearfix"></div>
