@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/huacnlee/social-share-button.git
+  revision: 1643f50ae88fa9e5647fa6525f949cc3f882ba35
+  specs:
+    social-share-button (1.1.0)
+      coffee-rails
+
+GIT
   remote: https://github.com/wazery/ratyrate.git
   revision: 05d704c2b7f9e676390906c35216769c664c3fa0
   specs:
@@ -324,6 +331,7 @@ DEPENDENCIES
   ratyrate!
   sass-rails (~> 5.0)
   selenium-webdriver
+  social-share-button!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

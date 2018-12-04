@@ -17,6 +17,7 @@ class Book < ApplicationRecord
 	validates :category_id, presence: true
 
   def self.search(search_param)
-    where('title LIKE ?', "%#{search_param}%")
+    where('title LIKE (?) OR author LIKE (?)',
+      "%#{search_param}%", "%#{search_param}%")
   end
 end

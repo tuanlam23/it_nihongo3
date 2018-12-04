@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "font-awesome";
+@import "social-share-button";
 
 html body .comments {
   max-width: 1000px;
@@ -110,5 +111,15 @@ html body .comments article .active {
     display: block;
     margin-left: 0 !important;
     opacity: .5 !important;
+  }
+}
+
+$size: 30px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
   }
 }

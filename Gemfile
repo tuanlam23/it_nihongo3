@@ -27,6 +27,7 @@ gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "ratyrate", github: 'wazery/ratyrate'
 gem "omniauth-google-oauth2", :git => 'https://github.com/zquestz/omniauth-google-oauth2', :branch => 'master'
+gem "social-share-button", github: "huacnlee/social-share-button"
 
 group :production do
   gem "pg",  "0.20.0"
