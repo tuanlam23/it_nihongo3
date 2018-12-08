@@ -36,7 +36,7 @@
               </div>
             </div>
           </div>
-          <%= social_share_button_tag(@book.title) %>
+          <%= social_share_button_tag(@book.title, :url => book_url(@book), desc: @book.description)%>
           <div class="short_overview my-5" id="form">
             <%= render "information" %>
             <% if logged_in? %>
