@@ -8,10 +8,10 @@
   <time><%= time_ago_in_words(comment.updated_at) %></time>
   <% if comment.user == current_user %>
     <%= link_to comment_path(comment), method: :delete, :data => {:confirm => 'Are you sure?'} do %>
-      <i class="fa fa-trash fa-2x"></i>
+      <i class="fa fa-trash icon"></i>
     <% end %>
     <%= link_to book_generate_edit_form_path(@book.id, comment_id: comment.id), remote: true do %>
-      <i class="fa fa-edit fa-2x"></i>
+      <i class="fa fa-edit"></i>
     <% end %>
   <% end %>
   <p><%= comment.content %></p>
